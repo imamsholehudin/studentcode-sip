@@ -1,0 +1,48 @@
+@startuml
+    class PW{
+        -id_pw :String
+        -nama : String
+        -alamat : String
+        +tambah()
+        +hapus()
+        +edit()
+    }
+
+    class PD{
+        -id_pd :String
+        -nama_pd : String
+        -alamat_pd : String
+        -pw : PW 
+        +tambah()
+        +hapus()
+        +edit()
+    }
+
+    class PC{
+        -id_pc :String
+        -nama_pc : String
+        -alamat_pc : String
+        -pd : PD 
+        +tambah()
+        +hapus()
+        +edit()
+    }
+
+    class PR{
+        -id_pr :String
+        -nama_pr : String
+        -alamat_pr : String
+        -pd : PD
+        -adaPC : Boolean
+        -pc : PC 
+        +tambah()
+        +hapus()
+        +edit()
+    }
+
+
+    PD *-- PW
+    PC *-- PD
+    PR *-- PC
+    PR *-- PD
+@enduml
